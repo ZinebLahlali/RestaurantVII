@@ -18,10 +18,7 @@ class restauController extends Controller
        return view('Restaurateur.AjouterR');
     }
 
-    public function showDashboard()
-    {
-        return view('Restaurateur.dashboardR');
-    }
+   
 
  
 
@@ -92,6 +89,7 @@ class restauController extends Controller
     public function showAllRestaurant()
     {
         $restaurants = Restaurant::all();
+        var_dump($restaurants);
 
         return view('restaurant/home',['restau' => $restaurants]);
     }
@@ -175,14 +173,12 @@ class restauController extends Controller
    }
     
 
-    public function unfavoriteRestau(Restaurant $restaurant)
-    {
-        $user = auth()::user();
-
-
-        $user->favoriteRestaurants()->detach($restaurant->id);
-        return back();
-    }
+    // public function unfavoriteRestau(Restaurant $restaurant)
+    // {
+    //     $user = auth()::user();
+    //     $user->favoriteRestaurants()->detach($restaurant->id);
+    //     return back();
+    // }
 
     public function listFavorites()
     {
